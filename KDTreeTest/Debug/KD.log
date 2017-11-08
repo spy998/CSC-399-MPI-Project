@@ -1,0 +1,19 @@
+﻿cl : Command line warning D9007: '/Gm' requires '/Zi or /ZI'; option ignored
+  KD.cpp
+KD.cpp(46): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\lenovo\downloads\kdtreetest\KDTree.h(341): warning C4101: 'dx': unreferenced local variable
+  c:\users\lenovo\downloads\kdtreetest\KDTree.h(333): note: while compiling class template member function 'KDNode<Xtype> *KDTree<Xtype>::search_parent(KDNode<Xtype> *,Xtype *)'
+          with
+          [
+              Xtype=int
+          ]
+  c:\users\lenovo\downloads\kdtreetest\KDTree.h(243): note: see reference to function template instantiation 'KDNode<Xtype> *KDTree<Xtype>::search_parent(KDNode<Xtype> *,Xtype *)' being compiled
+          with
+          [
+              Xtype=int
+          ]
+  c:\users\lenovo\downloads\kdtreetest\KDTree.h(171): note: while compiling class template member function 'KDTree<int>::KDTree(void)'
+  KD.cpp(11): note: see reference to function template instantiation 'KDTree<int>::KDTree(void)' being compiled
+  KD.cpp(11): note: see reference to class template instantiation 'KDTree<int>' being compiled
+  KD.vcxproj -> C:\Users\LENOVO\Downloads\KDTreeTest\.\Debug\KD.exe
+  KD.vcxproj -> .\Debug\KD.pdb (Full PDB)
