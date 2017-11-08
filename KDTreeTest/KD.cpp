@@ -4,6 +4,7 @@
 #include "KDTree.h"
 #include <iostream>
 #include "mpi.h"
+#include <fstream>
 
 
 using namespace std;
@@ -67,6 +68,7 @@ int main(int argc, char* argv[])
 		cout << nearest->x[i] << " ";
 	cout << endl;
 	cout << "Distance: " << disKD << endl;
+	system("pause");
 	
 	MPI_Barrier(MPI_COMM_WORLD);
 	MPI_Finalize();
