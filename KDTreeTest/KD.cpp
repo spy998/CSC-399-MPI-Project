@@ -5,6 +5,7 @@
 #include <iostream>
 #include "mpi.h"
 #include <fstream>
+#include <stdlib.h>
 
 
 using namespace std;
