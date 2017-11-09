@@ -6,7 +6,7 @@
 #include "mpi.h"
 #include <fstream>
 #include <stdlib.h>
-
+#include <string>
 
 using namespace std;
 
@@ -27,7 +27,6 @@ void GenerateRandomTree(int nNodes)
 		Tree.add(p); 
 	}
 }
-
 
 
 int main(int argc, char* argv[])
@@ -51,16 +50,39 @@ int main(int argc, char* argv[])
 	cout << "KD Tree Created by process " << rank << endl;
 	
 	// generate random point to query tree
-	
-
-	int pTarget [SD];
+	int pTarget[SD];
 	float disKD;
+	bool loop = true;
 
-	pTarget[0] = 3;
-	pTarget[1] = 5;
-	pTarget[2] = 212;
-	pTarget[3] = 50;
-	pTarget[4] = 115;
+	while (loop)
+	{
+		string filename;
+		cout << "Input the name of file with points(don't forget .txt): ";
+		getline(cin, filename);
+		ifstream points(filename);
+
+		int point;
+
+		if (points.is_open())
+		{
+			int i = 0;
+			while (!points.eof())
+			{
+				points >> point;
+				pTarget[i++] = point;
+			}
+			points.close();
+			loop = false;
+		}
+		else cout << "Error: Could not open file.\n";
+	}
+	
+	cout << "Points from file: ";
+	for (int i = 0; i < SD; i++)
+	{
+		cout << pTarget[i] << " ";
+	}
+	cout << endl;
 
 	KDNode<int>* nearest = Tree.find_nearest(pTarget);
 	disKD = (float)sqrt(Tree.d_min);
@@ -76,4 +98,3 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
-
