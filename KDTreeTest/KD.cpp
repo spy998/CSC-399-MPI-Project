@@ -84,13 +84,21 @@ int main(int argc, char* argv[])
 	}
 	cout << endl;
 
+	ofstream near_output("nearest.txt");
+
 	KDNode<int>* nearest = Tree.find_nearest(pTarget);
 	disKD = (float)sqrt(Tree.d_min);
 
 	for (int i = 0; i < SD; i++)
+	{
 		cout << nearest->x[i] << " ";
+		near_output << nearest->x[i] << endl;
+	}
+	
 	cout << endl;
+	ofstream dist_output("distance.txt");
 	cout << "Distance: " << disKD << endl;
+	dist_output << disKD;
 	system("pause");
 	
 	MPI_Barrier(MPI_COMM_WORLD);
